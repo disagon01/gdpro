@@ -6,8 +6,8 @@ WORKDIR /opt/rdgen
 COPY . .
 
 # 使用国内镜像源安装依赖（关键！）
-RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple/ -r requirements.txt \
-    && python manage.py migrate
+RUN chown -R user:user /opt/rdgen
+RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple/ -r requirements.txt
 
 USER user
 
