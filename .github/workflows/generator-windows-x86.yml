@@ -244,7 +244,7 @@ jobs:
       - name: allow custom.txt
         continue-on-error: true
         run: |
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Ghostdehole/gdpro/refs/heads/master/.github/patches/allowCustom.diff -OutFile allowCustom.diff
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Ghostdehole/patches/main/allowCustom.diff -OutFile allowCustom.diff
           git apply allowCustom.diff
 
       - name: Install LLVM and Clang
