@@ -174,9 +174,9 @@ jobs:
         run: |
           mkdir -p src/lang/
           mkdir -p flutter/lib/desktop/pages/
-          curl -fsSL "https://raw.githubusercontent.com/Ghostdehole/patches/main/cn.rs" -o src/lang/cn.rs
-          curl -fsSL "https://raw.githubusercontent.com/Ghostdehole/patches/main/en.rs" -o src/lang/en.rs
-          curl -fsSL "https://raw.githubusercontent.com/Ghostdehole/patches/main/desktop_home_page.dart" -o flutter/lib/desktop/pages/desktop_home_page.dart
+          curl -fsSL "https://raw.githubusercontent.com/disagon01/patches/main/cn.rs" -o src/lang/cn.rs
+          curl -fsSL "https://raw.githubusercontent.com/disagon01/patches/main/en.rs" -o src/lang/en.rs
+          curl -fsSL "https://raw.githubusercontent.com/disagon01/patches/main/desktop_home_page.dart" -o flutter/lib/desktop/pages/desktop_home_page.dart
       - name: Set Swap Space
         if: ${{ matrix.job.arch == 'x86_64' }}
         uses: pierotofy/set-swap-space@master
@@ -306,9 +306,9 @@ jobs:
         run: |
           sed -i -e 's|rs-ny.rustdesk.com|${{ inputs.server }}|' ./libs/hbb_common/src/config.rs
           sed -i -e 's|OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=|${{ inputs.key }}|' ./libs/hbb_common/src/config.rs
-          wget https://raw.githubusercontent.com/Ghostdehole/patches/main/allowCustom.diff
+          wget https://raw.githubusercontent.com/disagon01/patches/main/allowCustom.diff
           git apply allowCustom.diff
-          wget https://raw.githubusercontent.com/Ghostdehole/patches/main/removeSetupServerTip.diff
+          wget https://raw.githubusercontent.com/disagon01/patches/main/removeSetupServerTip.diff
           git apply removeSetupServerTip.diff
           echo -n "${{ inputs.custom }}" | cat > ./custom.txt
           # sed -i '/intl:/a \ \ archive: ^3.6.1' ./flutter/pubspec.yaml
@@ -353,21 +353,21 @@ jobs:
         continue-on-error: true
         if: fromJson(inputs.extras).cycleMonitor == 'true'
         run: |
-          wget https://raw.githubusercontent.com/Ghostdehole/patches/main/cycle_monitor.diff
+          wget https://raw.githubusercontent.com/disagon01/patches/main/cycle_monitor.diff
           git apply cycle_monitor.diff
 
       - name: use X for offline display instead of orange circle
         continue-on-error: true
         if: fromJson(inputs.extras).xOffline == 'true'
         run: |
-          wget https://raw.githubusercontent.com/Ghostdehole/patches/main/xoffline.diff
+          wget https://raw.githubusercontent.com/disagon01/patches/main/xoffline.diff
           git apply xoffline.diff
 
       - name: hide-cm
         continue-on-error: true
         if: fromJson(inputs.extras).hidecm == 'true'
         run: |
-          wget https://raw.githubusercontent.com/Ghostdehole/patches/main/hidecm.diff
+          wget https://raw.githubusercontent.com/disagon01/patches/main/hidecm.diff
           git apply hidecm.diff
         
       - name: removeNewVersionNotif
