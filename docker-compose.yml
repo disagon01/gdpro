@@ -1,7 +1,7 @@
 services:
   rdgen:
     # use ghostdehole/gdpro:master for the latest build
-    image: ghostdehole/gdpro:master
+    image: disagon01/gdpro:master
     restart: unless-stopped
     environment:
       SECRET_KEY: "django-insecure-!(t-!f#6g#sr%yfded9(xha)g+=!6craeez^cp+*&bz_7vdk61"
