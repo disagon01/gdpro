@@ -41,7 +41,7 @@ on:
       appname:
         description: "app name"
         required: true
-        default: 'rustdesk'
+        default: 'QuickDesk定制版'
         type: string
       filename:
         description: "Filename"
