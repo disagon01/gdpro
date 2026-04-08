@@ -33,7 +33,7 @@ class GenerateForm(forms.Form):
             ('1.3.4', '1.3.4'),
             ('1.3.3', '1.3.3')
         ],
-        initial='1.4.6',
+        initial='1.4.7',
         label="版本"
     )
     help_text = "“开发版”是包含最新功能的每夜构建版本，但可能稳定性较低"
