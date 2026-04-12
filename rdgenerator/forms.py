@@ -17,7 +17,7 @@ class GenerateForm(forms.Form):
     
     version = forms.ChoiceField(
         choices=[
-            ('master', '开发版（每夜构建）'),
+            ('master', '最新版（每夜构建）'),
             ('1.4.6', '1.4.6'),
             ('1.4.5', '1.4.5'),
             ('1.4.4', '1.4.4'),
