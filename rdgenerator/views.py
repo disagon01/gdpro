@@ -84,7 +84,7 @@ def generator_view(request):
             enableCamera = form.cleaned_data['enableCamera']
             enableTerminal = form.cleaned_data['enableTerminal']
 
-             if all(char.isascii() for char in filename):
+            if all(char.isascii() for char in filename):
                 filename = re.sub(r'[^\w\s-]', '_', filename).strip()
                 filename = filename.replace(" ","_")
             else:
