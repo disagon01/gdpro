@@ -84,11 +84,13 @@ def generator_view(request):
             enableCamera = form.cleaned_data['enableCamera']
             enableTerminal = form.cleaned_data['enableTerminal']
 
-             filename = re.sub(r'[^\u4e00-\u9fa5\w\s-]', '_', filename).strip()
-            filename = filename.replace(" ","_")
-            if appname:
-                appname = re.sub(r'[^\u4e00-\u9fa5\w\s-]', '_', appname).strip()
-                appname = appname
+             if all(char.isascii() for char in filename):
+                filename = re.sub(r'[^\w\s-]', '_', filename).strip()
+                filename = filename.replace(" ","_")
+            else:
+                filename = "rustdesk"
+            if not all(char.isascii() for char in appname):
+                appname = "rustdesk"
             myuuid = str(uuid.uuid4())
             protocol =  _settings.PROTOCOL
             host = request.get_host()
